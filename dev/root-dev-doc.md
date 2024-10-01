@@ -6,6 +6,10 @@ This is still a work in progress, but you can expect to find diagrams and explai
 
 ## Fundamental concepts
 
+### Kafka
+
+Apache Kafka is the communication protocol used by Celte. You may want to check out both the [official kafka documentation](https://kafka.apache.org/documentation/), the [repository](https://github.com/morganstanley/modern-cpp-kafka/tree/main) of the c++ kafka encapsulation used by Celte, as well as [how to use kafka in Celte](Kafka.md).
+
 ### RPCs
 RPCs (Remote Procedure Calls) are methods that can be invoked on another machine and are at the very heart of Celte. See [this documentation](RPC.md).
 

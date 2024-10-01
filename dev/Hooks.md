@@ -1,7 +1,7 @@
 # Hooks : how to use them
 
 From within the celte systems (not talking about engine encapsulation yet), a hook is used by calling it/ setting it
-from the CelteHooks class. Available hooks are different for clients and server nodes.
+from the celte::api::HooksTable class (CelteHooks.hpp). Available hooks are different for clients and server nodes.
 Set a hook like so:
 
 ```c++

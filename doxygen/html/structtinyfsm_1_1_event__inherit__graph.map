@@ -1,0 +1,9 @@
+<map id="tinyfsm::Event" name="tinyfsm::Event">
+<area shape="rect" id="Node000001" title=" " alt="" coords="239,5,346,31"/>
+<area shape="rect" id="Node000002" href="$structcelte_1_1_e_connect_to_cluster.html" title="Event to signal that the network should attempt to connect to the cluster." alt="" coords="5,79,177,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="245,39,126,81,124,76,243,34"/>
+<area shape="rect" id="Node000003" href="$structcelte_1_1_e_connection_success.html" title="Event to signal that the network services have successfully connected to the server...." alt="" coords="201,79,384,105"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="295,46,295,79,290,79,290,46"/>
+<area shape="rect" id="Node000004" href="$structcelte_1_1_e_disconnect_from_server.html" title="Event to signal that the network services have disconnected from the server. Upon receiving this mess..." alt="" coords="408,79,608,105"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="344,34,472,76,471,81,342,39"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" href="$classtinyfsm_1_1_fsm.html" title=" " alt="" coords="5,31,136,56"/>
+<area shape="rect" id="Node000001" href="$structtinyfsm_1_1_mealy_machine.html" title=" " alt="" coords="184,5,372,31"/>
+<area shape="poly" id="edge13_Node000000_Node000001" title=" " alt="" coords="151,31,183,27,184,32,152,36"/>
+<area shape="rect" id="Node000002" href="$structtinyfsm_1_1_moore_machine.html" title=" " alt="" coords="184,55,373,80"/>
+<area shape="poly" id="edge14_Node000000_Node000002" title=" " alt="" coords="152,50,184,54,183,59,151,55"/>
+</map>

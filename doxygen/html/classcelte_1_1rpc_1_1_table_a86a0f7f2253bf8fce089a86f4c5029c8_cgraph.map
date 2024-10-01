@@ -1,0 +1,5 @@
+<map id="celte::rpc::Table::InvokePeer" name="celte::rpc::Table::InvokePeer">
+<area shape="rect" id="Node000001" title="Invokes a remote procedure by name, for the given peer." alt="" coords="5,5,128,46"/>
+<area shape="rect" id="Node000002" href="$classcelte_1_1rpc_1_1_table.html#a4dd8e863b2ee8b39b398d527d6a66a76" title="Invokes a remote procedure by serializing the arguments and sending them to the specified topic...." alt="" coords="176,5,298,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="128,23,160,23,160,28,128,28"/>
+</map>

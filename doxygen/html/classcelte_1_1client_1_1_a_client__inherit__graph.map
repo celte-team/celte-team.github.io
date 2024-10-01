@@ -1,0 +1,11 @@
+<map id="celte::client::AClient" name="celte::client::AClient">
+<area shape="rect" id="Node000001" title="Base class for all client&#39;s states. Each state inheriting from this class should implement a particul..." alt="" coords="218,78,357,104"/>
+<area shape="rect" id="Node000003" href="$classcelte_1_1client_1_1states_1_1_connected.html" title=" " alt="" coords="405,5,537,46"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="339,70,411,44,413,49,341,75"/>
+<area shape="rect" id="Node000004" href="$classcelte_1_1client_1_1states_1_1_connecting.html" title=" " alt="" coords="405,71,537,111"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="372,88,405,88,405,94,372,94"/>
+<area shape="rect" id="Node000005" href="$classcelte_1_1client_1_1states_1_1_disconnected.html" title=" " alt="" coords="405,136,537,177"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="341,107,413,133,411,138,339,112"/>
+<area shape="rect" id="Node000002" href="$classtinyfsm_1_1_fsm.html" title=" " alt="" coords="5,78,170,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="185,88,217,88,217,94,185,94"/>
+</map>

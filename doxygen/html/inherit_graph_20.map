@@ -1,0 +1,11 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" href="$classtinyfsm_1_1_fsm.html" title=" " alt="" coords="5,78,174,104"/>
+<area shape="rect" id="Node000001" href="$classcelte_1_1server_1_1_a_server.html" title="Base class for all server&#39;s states. Each state inheriting from this class should implement a particul..." alt="" coords="222,78,370,104"/>
+<area shape="poly" id="edge9_Node000000_Node000001" title=" " alt="" coords="189,88,221,88,221,94,189,94"/>
+<area shape="rect" id="Node000002" href="$classcelte_1_1server_1_1states_1_1_connected.html" title=" " alt="" coords="418,5,555,46"/>
+<area shape="poly" id="edge10_Node000001_Node000002" title=" " alt="" coords="349,70,424,44,426,49,351,75"/>
+<area shape="rect" id="Node000003" href="$classcelte_1_1server_1_1states_1_1_connecting.html" title=" " alt="" coords="418,71,555,111"/>
+<area shape="poly" id="edge11_Node000001_Node000003" title=" " alt="" coords="386,88,417,88,417,94,386,94"/>
+<area shape="rect" id="Node000004" href="$classcelte_1_1server_1_1states_1_1_disconnected.html" title=" " alt="" coords="418,136,555,177"/>
+<area shape="poly" id="edge12_Node000001_Node000004" title=" " alt="" coords="351,107,426,133,424,138,349,112"/>
+</map>

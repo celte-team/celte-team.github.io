@@ -8,3 +8,6 @@ This is still a work in progress, but you can expect to find diagrams and explai
 
 ### RPCs
 RPCs (Remote Procedure Calls) are methods that can be invoked on another machine and are at the very heart of Celte. See [this documentation](RPC.md).
+
+### Hooks
+Hooks are customizable lambda expressions that are called by Celte at key moments of the execution, to implement specialized behaviors for the user. Such behavior may include spawning the player... See [here](Hooks.md).

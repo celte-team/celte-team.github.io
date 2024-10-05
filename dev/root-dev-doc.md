@@ -27,3 +27,7 @@ Hooks are customizable lambda expressions that are called by Celte at key moment
 ### Docker overview
 
 Celte is designed to run in a dockerized environment. This is a brief overview of how Celte is designed to run in a dockerized environment. See [here](Docker.md).
+
+### Server Meshing Algorithms
+
+Server Meshing comes with a number of notions not always seen in classical game networking. Click [here](server-meshing.md) to learn more.

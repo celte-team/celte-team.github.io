@@ -29,3 +29,7 @@ Then run the following command in the terminal:
 ```
 mkdir build && cd build && cmake --preset default .. -DCMAKE_PREFIX_PATH=path/to/gdproj
 ```
+
+# How to build Godot
+
+Check out [this documentation](./CompilingGodot.md) to learn how to build your godot project using the celte extension.

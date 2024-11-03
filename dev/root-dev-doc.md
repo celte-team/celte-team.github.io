@@ -4,6 +4,9 @@ Here you will find resources documenting the inner workings of Celte Server Mesh
 
 This is still a work in progress, but you can expect to find diagrams and explainations about the various procedures performed by Celte, both from an algorithmic and from a network point of view.
 
+### How to setup Celte ?
+Click [here](Setup.md) to learn how to setup Celte on your machine.
+
 ## Fundamental concepts
 
 ### Kafka

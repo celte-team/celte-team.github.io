@@ -62,12 +62,13 @@ The godot project contain the client and the server node.
 ```
 
 ⚠️ You must have installed on your machine the following tools:
+
 - `scons`
 - `boost`
 
 MAC OS users must install the following packages:
-- `boost-python3` : `brew install boost-python3`
 
+- `boost-python3` : `brew install boost-python3`
 
 # Run the project:
 
@@ -78,6 +79,7 @@ To easily run the project, you can use the `run` script in the `celte-system` fo
 ```
 
 # Docker:
+
 There is a docker image containing the celte-system folder and already compiled.
 `clmt/celte_server:latest`
 This will be use to run the project with the `--cpp` option.

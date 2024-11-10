@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Celte: celte::nl::KafkaPool Class Reference</title>
+<title>Celte: celte::nl::KPool Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -64,7 +64,7 @@ $(function() {
       <div id="nav-sync" class="sync"></div>
     </div>
   </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
+  <div id="splitbar" style="-moz-user-select:none;"
        class="ui-resizable-handle">
   </div>
 </div>
@@ -102,14 +102,14 @@ $(function(){initNavTree('classcelte_1_1nl_1_1_kafka_pool.html',''); initResizab
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#friends">Friends</a> &#124;
 <a href="classcelte_1_1nl_1_1_kafka_pool-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">celte::nl::KafkaPool Class Reference</div></div>
+  <div class="headertitle"><div class="title">celte::nl::KPool Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classcelte_1_1nl_1_1_kafka_pool.html" title="KafkaPool manages sending and receiving messages from Kafka. It handles creating consumers and produc...">KafkaPool</a> manages sending and receiving messages from Kafka. It handles creating consumers and producers.  
+<p><a class="el" href="classcelte_1_1nl_1_1_kafka_pool.html" title="KPool manages sending and receiving messages from Kafka. It handles creating consumers and produc...">KPool</a> manages sending and receiving messages from Kafka. It handles creating consumers and producers.
  <a href="#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="_kafka_pool_8hpp_source.html">KafkaPool.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="_kafka_pool_8hpp_source.html">KPool.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -130,7 +130,7 @@ Public Types</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a18377492b27448f99c79f7b696b8a85c" id="r_a18377492b27448f99c79f7b696b8a85c"><td class="memItemLeft" align="right" valign="top"><a id="a18377492b27448f99c79f7b696b8a85c" name="a18377492b27448f99c79f7b696b8a85c"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>KafkaPool</b> (const <a class="el" href="structcelte_1_1nl_1_1_kafka_pool_1_1_options.html">Options</a> &amp;options)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><b>KPool</b> (const <a class="el" href="structcelte_1_1nl_1_1_kafka_pool_1_1_options.html">Options</a> &amp;options)</td></tr>
 <tr class="separator:a18377492b27448f99c79f7b696b8a85c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a390a7a5adcfed3af7ff5da6bd0bf86ce" id="r_a390a7a5adcfed3af7ff5da6bd0bf86ce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a390a7a5adcfed3af7ff5da6bd0bf86ce">Subscribe</a> (const <a class="el" href="structcelte_1_1nl_1_1_kafka_pool_1_1_subscribe_options.html">SubscribeOptions</a> &amp;options)</td></tr>
 <tr class="memdesc:a390a7a5adcfed3af7ff5da6bd0bf86ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subscribe to a topic with a callback function. The function will only be exectuted if the CatchUp method is called.  <br /></td></tr>
@@ -163,7 +163,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>kafka::clients::prod
 <tr class="separator:acd1af40c80f5c8aef8f933d639a29cda"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classcelte_1_1nl_1_1_kafka_pool.html" title="KafkaPool manages sending and receiving messages from Kafka. It handles creating consumers and produc...">KafkaPool</a> manages sending and receiving messages from Kafka. It handles creating consumers and producers. </p>
+<div class="textblock"><p><a class="el" href="classcelte_1_1nl_1_1_kafka_pool.html" title="KPool manages sending and receiving messages from Kafka. It handles creating consumers and produc...">KPool</a> manages sending and receiving messages from Kafka. It handles creating consumers and producers. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a313bf5c178441f48e91be8d556c8c43c" name="a313bf5c178441f48e91be8d556c8c43c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a313bf5c178441f48e91be8d556c8c43c">&#9670;&#160;</a></span>MessageCallback</h2>
@@ -172,7 +172,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>kafka::clients::prod
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="#a313bf5c178441f48e91be8d556c8c43c">celte::nl::KafkaPool::MessageCallback</a></td>
+          <td class="memname">using <a class="el" href="#a313bf5c178441f48e91be8d556c8c43c">celte::nl::KPool::MessageCallback</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -191,7 +191,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>kafka::clients::prod
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void celte::nl::KafkaPool::CatchUp </td>
+          <td class="memname">void celte::nl::KPool::CatchUp </td>
           <td>(</td>
           <td class="paramtype">unsigned int</td>          <td class="paramname"><span class="paramname"><em>maxBlockingMs</em></span><span class="paramdefsep"> = </span><span class="paramdefval">10</span></td><td>)</td>
           <td></td>
@@ -218,7 +218,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>kafka::clients::prod
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool celte::nl::KafkaPool::Poll </td>
+          <td class="memname">bool celte::nl::KPool::Poll </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>groupId</em></span>, </td>
         </tr>
@@ -250,7 +250,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>kafka::clients::prod
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void celte::nl::KafkaPool::Subscribe </td>
+          <td class="memname">void celte::nl::KPool::Subscribe </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structcelte_1_1nl_1_1_kafka_pool_1_1_subscribe_options.html">SubscribeOptions</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>options</em></span></td><td>)</td>
           <td></td>
@@ -275,7 +275,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>kafka::clients::prod
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void celte::nl::KafkaPool::Unsubscribe </td>
+          <td class="memname">void celte::nl::KPool::Unsubscribe </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>topic</em></span>, </td>
         </tr>
@@ -305,15 +305,15 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>kafka::clients::prod
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>runtime/include/<a class="el" href="_kafka_pool_8hpp_source.html">KafkaPool.hpp</a></li>
-<li>runtime/src/<b>KafkaPool.cpp</b></li>
+<li>runtime/include/<a class="el" href="_kafka_pool_8hpp_source.html">KPool.hpp</a></li>
+<li>runtime/src/<b>KPool.cpp</b></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>celte</b></li><li class="navelem"><b>nl</b></li><li class="navelem"><a class="el" href="classcelte_1_1nl_1_1_kafka_pool.html">KafkaPool</a></li>
+    <li class="navelem"><b>celte</b></li><li class="navelem"><b>nl</b></li><li class="navelem"><a class="el" href="classcelte_1_1nl_1_1_kafka_pool.html">KPool</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>

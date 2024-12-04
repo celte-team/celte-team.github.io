@@ -21,24 +21,26 @@ After using `docker compose up` to create the cluster, the configuration looks l
 
 ### Subscribing : Async vs sync
 
-All actions related to kafka are done by the [KafkaPool](https://github.com/celte-team/celte-system/blob/main/runtime/include/KafkaPool.hpp) class.
-Polling for data being an IO operation, it is expected to take most of the processing time of the network layer. Thus, polling is by default done in a separate thread. Polled data is pushed on a queue, waiting to be processed all at once in a synchronous way using the `KafkaPool::CatchUp` method. (Users are free to make this async by launching a new thread to run the processing of data but by default Celte does not force the user to use multithread synchronization).
+All actions related to kafka are done by the [KPool](https://github.com/celte-team/celte-system/blob/main/runtime/include/KPool.hpp) class.
+Polling for data being an IO operation, it is expected to take most of the processing time of the network layer. Thus, polling is by default done in a separate thread. Polled data is pushed on a queue, waiting to be processed all at once in a synchronous way using the `KPool::CatchUp` method. (Users are free to make this async by launching a new thread to run the processing of data but by default Celte does not force the user to use multithread synchronization).
 
 To subscribe to a topic, use the following method:
 
 ```c++
-struct SubscribeOptions {
-    std::string topic = ""; // What topic to subscribe to
-    std::string groupId = ""; // Leave empty for automatic group assignment
-    bool autoCreateTopic = true; // If set to false, subscribing will fail if the topic does not yet exist.
-    std::map<std::string, std::string> extraProps = {}; // Add custom kafka properties as key value pairs here.
-    bool autoPoll = true; // If set to false, polling will not be async and will require the user to manually call the Poll method.
-    MessageCallback callback = nullptr; // The method that will be invoked by CatchUp on the data received.
-};
+  struct SubscribeOptions {
+    std::vector<std::string> topics = std::vector<std::string>(); // List of topics to subscribe to.
+    std::string groupId = "";                                     // Kafka consumer group id
+    bool autoCreateTopic = true;                                  // If set to false, an error will be thrown if the topic has not yet been created on the brokers side
+    std::map<std::string, std::string> extraProps = {};           // Extra properties for the consumer being created. (Not implemented at the moment, coming in a future release.)
+    bool autoPoll = true;                                         // If set to true, messages to these topics will be polled for automatically in a separate thread. If some precise synchronization is required, one may use the Poll method and poll manually for messages.
+    std::vector<MessageCallback> callbacks = {};                  // If this vector has the same size as the topics vector, each callback will be registered with the associated topic and get called on every record received for that topic.
+  };
 void Subscribe(const SubscribeOptions &options); // Call this with the properties above to subscribe to the topic.
 ```
 
 If `autoPoll` is set to `false`, polling for messages will need to be done manually for the group of the consumer.
+
+**Warning** Subscriptions won't be taken into account until the `KPool::CommitSubscriptions` method has been called. This is to allow the logic to be implemented by different actors, where the logic of subscription makes sense in the initialization of the local procedure. `CommitSubscriptions` will then implement the subscriptions at the same time to reduce the load on kafka consumers and the overhead of rebalancing for each new topic being joined.
 
 ### Sending
 
@@ -86,7 +88,7 @@ struct SendOptions {
 };
 
 // This overload creates the record for the user, handling memory for the user.
-void KafkaPool::Send(const KafkaPool::SendOptions &options) {
+void KPool::Send(const KPool::SendOptions &options) {
   // wrapping the options in a shared ptr to avoid copying or dangling
   // references
   auto opts = std::make_shared<SendOptions>(options);

@@ -64,7 +64,7 @@ $(function() {
       <div id="nav-sync" class="sync"></div>
     </div>
   </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
+  <div id="splitbar" style="-moz-user-select:none;"
        class="ui-resizable-handle">
   </div>
 </div>
@@ -126,7 +126,7 @@ $(function(){initNavTree('_celte_runtime_8hpp_source.html',''); initResizable(tr
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;CelteGrape.hpp&quot;</span></div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &quot;CelteHooks.hpp&quot;</span></div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &quot;CelteRPC.hpp&quot;</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &quot;KafkaPool.hpp&quot;</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &quot;KPool.hpp&quot;</span></div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include &quot;tinyfsm.hpp&quot;</span></div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#include &quot;topics.hpp&quot;</span></div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#include &lt;atomic&gt;</span></div>
@@ -210,7 +210,7 @@ $(function(){initNavTree('_celte_runtime_8hpp_source.html',''); initResizable(tr
 <div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
 <div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>  <a class="code hl_class" href="classcelte_1_1rpc_1_1_table.html">rpc::Table</a> &amp;<a class="code hl_function" href="classcelte_1_1runtime_1_1_celte_runtime.html#ad3cd8a9ef816b1ac2bfec632d5bc0768">RPCTable</a>();</div>
 <div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span> </div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>  <a class="code hl_class" href="classcelte_1_1nl_1_1_kafka_pool.html">nl::KafkaPool</a> &amp;<a class="code hl_function" href="classcelte_1_1runtime_1_1_celte_runtime.html#a20f8960ad0b284ad76bbe4eca4ae440b">KPool</a>();</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>  <a class="code hl_class" href="classcelte_1_1nl_1_1_kafka_pool.html">nl::KPool</a> &amp;<a class="code hl_function" href="classcelte_1_1runtime_1_1_celte_runtime.html#a20f8960ad0b284ad76bbe4eca4ae440b">KPool</a>();</div>
 <div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span> </div>
 <div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>  <a class="code hl_class" href="classcelte_1_1api_1_1_hooks_table.html">api::HooksTable</a> &amp;<a class="code hl_function" href="classcelte_1_1runtime_1_1_celte_runtime.html#a9bfc82e40956169bbd4c2a56ee7b2ffa">Hooks</a>();</div>
 <div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span> </div>
@@ -259,7 +259,7 @@ $(function(){initNavTree('_celte_runtime_8hpp_source.html',''); initResizable(tr
 <div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>  <a class="code hl_class" href="classcelte_1_1rpc_1_1_table.html">rpc::Table</a> _rpcTable;</div>
 <div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span> </div>
 <div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>  <span class="comment">// Kafka producer / consumer pool used to send and receive messages from kafka</span></div>
-<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>  std::shared_ptr&lt;nl::KafkaPool&gt; _pool;</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>  std::shared_ptr&lt;nl::KPool&gt; _pool;</div>
 <div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span> </div>
 <div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>  <span class="comment">// Hooks table</span></div>
 <div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>  <a class="code hl_class" href="classcelte_1_1api_1_1_hooks_table.html">api::HooksTable</a> _hooks;</div>
@@ -270,11 +270,11 @@ $(function(){initNavTree('_celte_runtime_8hpp_source.html',''); initResizable(tr
 <div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span> </div>
 <div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span><span class="preprocessor">#endif </span><span class="comment">// CELTE_RUNTIME_HPP</span></div>
 <div class="ttc" id="aclasscelte_1_1api_1_1_hooks_table_html"><div class="ttname"><a href="classcelte_1_1api_1_1_hooks_table.html">celte::api::HooksTable</a></div><div class="ttdoc">To allow maximum customization of celte's behaviors, most actions taken by celte can be coupled with ...</div><div class="ttdef"><b>Definition</b> CelteHooks.hpp:17</div></div>
-<div class="ttc" id="aclasscelte_1_1nl_1_1_kafka_pool_html"><div class="ttname"><a href="classcelte_1_1nl_1_1_kafka_pool.html">celte::nl::KafkaPool</a></div><div class="ttdoc">KafkaPool manages sending and receiving messages from Kafka. It handles creating consumers and produc...</div><div class="ttdef"><b>Definition</b> KafkaPool.hpp:19</div></div>
+<div class="ttc" id="aclasscelte_1_1nl_1_1_kafka_pool_html"><div class="ttname"><a href="classcelte_1_1nl_1_1_kafka_pool.html">celte::nl::KPool</a></div><div class="ttdoc">KPool manages sending and receiving messages from Kafka. It handles creating consumers and produc...</div><div class="ttdef"><b>Definition</b> KPool.hpp:19</div></div>
 <div class="ttc" id="aclasscelte_1_1rpc_1_1_table_html"><div class="ttname"><a href="classcelte_1_1rpc_1_1_table.html">celte::rpc::Table</a></div><div class="ttdoc">A table of remote procedures that can be invoked by name. The invoke method takes a topic and a list ...</div><div class="ttdef"><b>Definition</b> CelteRPC.hpp:96</div></div>
 <div class="ttc" id="aclasscelte_1_1runtime_1_1_celte_runtime_html"><div class="ttname"><a href="classcelte_1_1runtime_1_1_celte_runtime.html">celte::runtime::CelteRuntime</a></div><div class="ttdoc">This class contains all the logic necessary for Celte to run in a Godot project. Depending on the mod...</div><div class="ttdef"><b>Definition</b> CelteRuntime.hpp:65</div></div>
 <div class="ttc" id="aclasscelte_1_1runtime_1_1_celte_runtime_html_a024dd3fffeef323bbe5e8c4ed365cd85"><div class="ttname"><a href="classcelte_1_1runtime_1_1_celte_runtime.html#a024dd3fffeef323bbe5e8c4ed365cd85">celte::runtime::CelteRuntime::IsConnectingToCluster</a></div><div class="ttdeci">bool IsConnectingToCluster()</div><div class="ttdoc">Returns true if the runtime is currently connecting to kafka.</div><div class="ttdef"><b>Definition</b> CelteRuntime.cpp:150</div></div>
-<div class="ttc" id="aclasscelte_1_1runtime_1_1_celte_runtime_html_a20f8960ad0b284ad76bbe4eca4ae440b"><div class="ttname"><a href="classcelte_1_1runtime_1_1_celte_runtime.html#a20f8960ad0b284ad76bbe4eca4ae440b">celte::runtime::CelteRuntime::KPool</a></div><div class="ttdeci">nl::KafkaPool &amp; KPool()</div><div class="ttdoc">Returns a reference to the KafkaPool used to send and receive messages from kafka....</div><div class="ttdef"><b>Definition</b> CelteRuntime.cpp:175</div></div>
+<div class="ttc" id="aclasscelte_1_1runtime_1_1_celte_runtime_html_a20f8960ad0b284ad76bbe4eca4ae440b"><div class="ttname"><a href="classcelte_1_1runtime_1_1_celte_runtime.html#a20f8960ad0b284ad76bbe4eca4ae440b">celte::runtime::CelteRuntime::KPool</a></div><div class="ttdeci">nl::KPool &amp; KPool()</div><div class="ttdoc">Returns a reference to the KPool used to send and receive messages from kafka....</div><div class="ttdef"><b>Definition</b> CelteRuntime.cpp:175</div></div>
 <div class="ttc" id="aclasscelte_1_1runtime_1_1_celte_runtime_html_a2a8ac890c2024002f5d06d28fa7dd4a5"><div class="ttname"><a href="classcelte_1_1runtime_1_1_celte_runtime.html#a2a8ac890c2024002f5d06d28fa7dd4a5">celte::runtime::CelteRuntime::GetInstance</a></div><div class="ttdeci">static CelteRuntime &amp; GetInstance()</div><div class="ttdoc">Singleton pattern for the CelteRuntime.</div><div class="ttdef"><b>Definition</b> CelteRuntime.cpp:75</div></div>
 <div class="ttc" id="aclasscelte_1_1runtime_1_1_celte_runtime_html_a4093373a76c4fa17715a74c281de842c"><div class="ttname"><a href="classcelte_1_1runtime_1_1_celte_runtime.html#a4093373a76c4fa17715a74c281de842c">celte::runtime::CelteRuntime::WaitForClusterConnection</a></div><div class="ttdeci">bool WaitForClusterConnection(int timeoutMs)</div><div class="ttdoc">Waits until the runtime is connected to the cluster. If timeout is reached, returns false.</div><div class="ttdef"><b>Definition</b> CelteRuntime.cpp:160</div></div>
 <div class="ttc" id="aclasscelte_1_1runtime_1_1_celte_runtime_html_a491016fc35e56efbe282fa89cb29d52f"><div class="ttname"><a href="classcelte_1_1runtime_1_1_celte_runtime.html#a491016fc35e56efbe282fa89cb29d52f">celte::runtime::CelteRuntime::IsConnectedToCluster</a></div><div class="ttdeci">bool IsConnectedToCluster()</div><div class="ttdoc">Returns true if the runtime is currently connected to kafka.</div><div class="ttdef"><b>Definition</b> CelteRuntime.cpp:140</div></div>

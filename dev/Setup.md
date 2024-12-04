@@ -40,7 +40,8 @@ The godot project contain the client and the server node.
 
     - install godot version``4.2.2``
     - import godot project from the `godot` folder
-    ![import godot project](./images/import_godot_project.png)
+
+![import godot project](./images/import_godot_project.png)
 
 - Run the project:
 

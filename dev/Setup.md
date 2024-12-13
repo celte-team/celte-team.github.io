@@ -48,17 +48,31 @@ The godot project contain the client and the server node.
 
 ### Link celte-godot to the celte-system:
 
-1. Go to the `celte-system` folder and run the following command:
+1. open at least one the project in godot.
+
+
+2. Go to the `celte-system` folder and run the following command:
 
 ```bash
 ./automations/setup_repository.sh PATH-TO.. /celte/celte-godot/gdprojects/p1/gdproj
 ```
+3. rm godot-cpp then git clone the cpp module then git switch to 4.2
 
-2. Then compile the project in godot.
-   go to the `celte-godot/gdprojects/p1` folder and run the following command:
+    ```bash
+    rm -rf godot-cpp ; git clone git@github.com:godotengine/godot-cpp.git ; cd godot-cpp ; git checkout 4.2
+    ```
+
+4. go to `celte-system/system/build` and run the following command:
 
 ```bash
-    make -j
+    cmake install .
+```
+
+5. Then compile the project in godot.
+go back to ```celte/celte-godot/gdprojects/p1``` and run the following command:
+
+```bash
+make
 ```
 
 ⚠️ You must have installed on your machine the following tools:

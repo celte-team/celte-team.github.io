@@ -2,8 +2,6 @@
 
 ```work in progress...```
 
-## User's corner
-You are a game developer and wish to integrate Celte to your game? Look no further than [this documentation](user/root-game-dev.md)!
+Celte is a school project about developing an SDK for using server meshing in your game engine.
 
-## Dev's corner
-You wish to participate in Celte but do not know how to start? Check out the [developer's documentation](dev/root-dev-doc.md)
+If you wish to know more about out implementation of server meshing and the different concepts used in the rest of this documentation, read [this page](doc/server-meshing.md).

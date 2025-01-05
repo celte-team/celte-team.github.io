@@ -41,7 +41,7 @@ To ensure good synchronization of the authority transfer, an entity entering a c
 
 ## Property Replication
 
-The results computed by server nodes are replicated to the clients so that they can rollabck in case of incorrect predictions.
+The results computed by server nodes are replicated to the clients so that they can rollback in case of incorrect predictions.
 There are two ways to replicate the data: one is **passive** and the other is **active**. Replicating passively means that Celte won't be watching for any change in the data, instead it is the user's responsability to notifiy that a change must be replicated using `CelteEntity::NotifyChange` on the entity concerned by the change. This saves computing resources as no check is required to verify if the value has changed. The active way on the other hand will continuously recalculate a checksum of the value being watched and replicate it if the checksum changes.
 
 The data is kept as a pointer to the real data, saved in a map with a unique name for that particular variable. Upon receiving the changes, the client side will go to that pointer by reading the address in the local version of the map, and simply overwrite the value in place.

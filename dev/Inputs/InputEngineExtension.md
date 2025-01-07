@@ -42,15 +42,19 @@ The Main problem with this implementation is that we need to reimplement all the
 ### How to use it in the Engine
 
 1. You need to add a CelteInputStream to your CEntity
+
    ![1736244005161](image/InputEngineExtension/1736244005161.png)
 
 2. You need to setup the entity uuid and if you use mouse mouvments
+
    ![1736244046845](image/InputEngineExtension/1736244046845.png)
 
 3. Registers the list of inputs to listen
+
    ![1736243704958](image/InputEngineExtension/1736243704958.png)
 
 4. Use the celte input instead of the native one
+
    ![1736243764734](image/InputEngineExtension/1736243764734.png)
 
 

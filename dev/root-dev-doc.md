@@ -37,8 +37,8 @@ Server Meshing comes with a number of notions not always seen in classical game 
 
 ### Celte Input System
 
-Celte have a custom input system to fit with the server meshing system. Click [here](Input/InputsCelteSystem.md) to learn more.
+Celte have a custom input system to fit with the server meshing system. Click [here](Inputs/InputsCelteSystem.md) to learn more.
 
 ### Celte Input System inside Engine Extension
 
-Celte have a custom input system to fit with the server meshing system, we need to adapt the Engine extension to add our custom input system. Click [here](Input/InputEngineExtension.md) to learn more.
+Celte have a custom input system to fit with the server meshing system, we need to adapt the Engine extension to add our custom input system. Click [here](Inputs/InputEngineExtension.md) to learn more.

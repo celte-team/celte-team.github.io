@@ -1,5 +1,0 @@
-<map id="celte::EConnectionSuccess" name="celte::EConnectionSuccess">
-<area shape="rect" id="Node000001" title="Event to signal that the network services have successfully connected to the server...." alt="" coords="5,79,189,105"/>
-<area shape="rect" id="Node000002" href="$structtinyfsm_1_1_event.html" title=" " alt="" coords="44,5,150,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="100,46,100,79,94,79,94,46"/>
-</map>

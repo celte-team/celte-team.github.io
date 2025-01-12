@@ -1,5 +1,0 @@
-<map id="celte::client::AClient" name="celte::client::AClient">
-<area shape="rect" id="Node000001" title="Base class for all client&#39;s states. Each state inheriting from this class should implement a particul..." alt="" coords="18,79,157,105"/>
-<area shape="rect" id="Node000002" href="$classtinyfsm_1_1_fsm.html" title=" " alt="" coords="5,5,170,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="90,46,90,79,85,79,85,46"/>
-</map>

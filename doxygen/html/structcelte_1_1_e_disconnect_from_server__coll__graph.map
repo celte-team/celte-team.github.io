@@ -1,5 +1,0 @@
-<map id="celte::EDisconnectFromServer" name="celte::EDisconnectFromServer">
-<area shape="rect" id="Node000001" title="Event to signal that the network services have disconnected from the server. Upon receiving this mess..." alt="" coords="5,79,206,105"/>
-<area shape="rect" id="Node000002" href="$structtinyfsm_1_1_event.html" title=" " alt="" coords="52,5,159,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="108,46,108,79,103,79,103,46"/>
-</map>

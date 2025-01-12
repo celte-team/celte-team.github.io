@@ -1,5 +1,0 @@
-<map id="celte::chunks::Grape::GetChunkByPosition" name="celte::chunks::Grape::GetChunkByPosition">
-<area shape="rect" id="Node000001" title="Returns the chunk at the given position. This method is used to forward entities to the correct chunk..." alt="" coords="176,5,327,46"/>
-<area shape="rect" id="Node000002" href="$classcelte_1_1_celte_entity.html#ad0c2fcd2c60ed5d2af61680a31fca087" title="Called when the entity is spawned. This is called when the entity is created and added to the scene...." alt="" coords="5,5,128,46"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="160,28,128,28,128,23,160,23"/>
-</map>

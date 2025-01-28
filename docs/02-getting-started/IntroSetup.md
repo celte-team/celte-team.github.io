@@ -2,7 +2,6 @@
 sidebar_position: 1
 ---
 
-
 # Overview
 
 This document provides a step-by-step guide to setting up the development environment for the project. The project is developed in four main parts:
@@ -24,7 +23,7 @@ Master is the conductor of the orchestra. He is responsible :
 * Of the assignation of the different client to the different server nodes.
 * He is also responsible for the creation of the different server nodes.
 
-go to the `celte-system` folder and run the following command:
+Go to the `celte-system` folder and run the following command:
 
 ```bash
 dotnet run --config configFile.yml
@@ -54,29 +53,58 @@ The godot project contain the client and the server node.
 
 ### Link celte-godot to the celte-system:
 
-1. open at least one the project in godot.
-2. Go to the `celte-system` folder and run the following command:
+The godot implementation of the SDK in base on a addon.
+We will first compile de SDK and import it inside the godot addon Then we will use symbolic link to link the addon to your godot project !
+
+1. Open at least one the project in godot.
+
+2. Go to the `celte-godot` folder and run the following command:
 
 ```bash
-./automations/setup_repository.sh PATH-TO.. /celte/celte-godot/gdprojects/p1/gdproj
+cd extension-standalone ; scons
 ```
 
-3. rm godot-cpp then git clone the cpp module then git switch to 4.2
+3. Go to the `celte-system` folder and run the following command:
+
+```bash
+./automations/setup_repository.sh PATH-TO.. /celte/celte-godot/addons/celte/deps/ ..
+```
+If needed you can create the `deps` folder in the `celte-godot/addons/celte` folder.
+
+
+4. Rm godot-cpp then git clone the cpp module then git switch to 4.2
 
    ```bash
    rm -rf godot-cpp ; git clone git@github.com:godotengine/godot-cpp.git ; cd godot-cpp ; git checkout 4.2
    ```
-4. go to `celte-system/system/build` and run the following command:
+
+5. Go to `celte-system/system/build` and run the following command:
 
 ```bash
     cmake install .
 ```
 
 5. Then compile the project in godot.
-   go back to ``celte/celte-godot/gdprojects/p1`` and run the following command:
+```
+cd YOUR_PATH/celte/celte-godot/projects/demo1
+```
+
+To use the server mode you have to set the following environment variable:
+```bash
+export CELTE_MODE=server
+```
 
 ```bash
-make
+/Applications/Godot.app/Contents/MacOS/Godot .
+```
+
+ln -s YOUR_PATH/celte/celte-godot/addons addons
+
+Then you have to go to system and run the following command:
+
+```bash
+cd system/build ; cmake --preset default -DCMAKE_INSTALL_PREFIX=YOUR_PATH/celte/celte-godot/addons/celte/deps/ .. ;
+ ninja install
 ```
 
 ⚠️ You must have installed on your machine the following tools:

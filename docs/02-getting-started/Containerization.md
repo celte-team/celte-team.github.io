@@ -47,7 +47,14 @@ make -j
 
 ## Kubernetes
 
-Is is up to your technical constraints to deploy Celte on Kubernetes or using another orchestrator.
+Deployment of Celte depends on your technical constraints, whether on Kubernetes or another orchestrator. Celte includes a testing environment that uses Docker Compose and can be executed with the command:
+
+```./automations/run --all```
+
+Celte can also be deployed with Kubernetes (K8s). The local Kubernetes deployment requires the following tools:
+  • `Minikube`: To create a local Kubernetes cluster.
+  • `kubectl`: To manage Kubernetes resources from the command line.
+  • `k9s`: For an enhanced terminal-based UI to interact with Kubernetes clusters.
 
 Right now the K8S configuration is present inside the `devops` folder.
 Inside, you will find the following files:

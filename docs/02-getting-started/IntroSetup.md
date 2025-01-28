@@ -74,9 +74,9 @@ If needed you can create the `deps` folder in the `celte-godot/addons/celte` fol
 
 4. Rm godot-cpp then git clone the cpp module then git switch to 4.2
 
-   ```bash
-   rm -rf godot-cpp ; git clone git@github.com:godotengine/godot-cpp.git ; cd godot-cpp ; git checkout 4.2
-   ```
+```bash
+rm -rf godot-cpp ; git clone git@github.com:godotengine/godot-cpp.git ; cd godot-cpp ; git checkout 4.2
+```
 
 5. Go to `celte-system/system/build` and run the following command:
 
@@ -93,7 +93,7 @@ To use the server mode you have to set the following environment variable:
 ```bash
 export CELTE_MODE=server
 ```
-
+Then you can run the project with the following command:
 ```bash
 /Applications/Godot.app/Contents/MacOS/Godot .
 ```
@@ -121,11 +121,5 @@ MAC OS users must install the following packages:
 To easily run the project, you can use the `run` script in the `celte-system` folder.
 
 ```bash
-./automations/run (--pulsar, --master)
+./automations/run (--all)
 ```
-
-# Docker:
-
-There is a docker image containing the celte-system folder and already compiled.
-`clmt/celte_server:latest`
-This will be use to run the project with the `--cpp` option.

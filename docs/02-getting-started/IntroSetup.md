@@ -92,6 +92,11 @@ cd YOUR_PATH/celte/celte-godot/projects/demo1
 To use the server mode you have to set the following environment variable:
 ```bash
 export CELTE_MODE=server
+or
+export CELTE_MODE=client
+```
+
+Then you can run the project with the following command:
 ```
 Then you can run the project with the following command:
 ```bash
@@ -103,8 +108,7 @@ ln -s YOUR_PATH/celte/celte-godot/addons addons
 Then you have to go to system and run the following command:
 
 ```bash
-cd system/build ; cmake --preset default -DCMAKE_INSTALL_PREFIX=YOUR_PATH/celte/celte-godot/addons/celte/deps/ .. ;
- ninja install
+cd system/build ; cmake --preset default -DCMAKE_INSTALL_PREFIX=YOUR_PATH/celte/celte-godot/addons/celte/deps/ .. ; ninja install
 ```
 
 ⚠️ You must have installed on your machine the following tools:

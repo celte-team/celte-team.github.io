@@ -15,11 +15,16 @@ Path to your vcpkg:
 export VCPKG_ROOT= ~/vcpkg
 ```
 
-Your type of OS:
-
+Your type of OS (the exmple is for linux):
+arm64-osx : macos
+aarch64-linux : linux arm
+x64-linux : linux
 ```
-export VCPKG_TARGET_TRIPLET=x64-linux 
+export VCPKG_TARGET_TRIPLET=x64-linux
 
+export VCPKG_TARGET_TRIPLET=aarch64-linux
+
+export VCPKG_TARGET_TRIPLET=arm64-osx
 ```
 
 Add vcpkg_root to your path:

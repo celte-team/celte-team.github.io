@@ -123,11 +123,9 @@ The godot project contain the client and the server node.
     cmake install .
 ```
 
-5. Then compile the project in godot.
-   go back to ``celte/celte-godot/gdprojects/p1`` and run the following command:
-
+5. Then link the addons to your project:
 ```bash
-make
+ln -s /YOUR_PATH/celte/celte-godot/addons/celte/ addons/celte
 ```
 
 ⚠️ You must have installed on your machine the following tools:

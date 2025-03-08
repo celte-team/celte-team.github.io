@@ -71,6 +71,8 @@ helm/
 
 ### Values
 
+⚠️You must update the `values.yaml` file with the correct information before deploying the chart. (ip, port, etc.)
+
 The main configurable values are defined in `values.yaml`:
 
 ```yaml

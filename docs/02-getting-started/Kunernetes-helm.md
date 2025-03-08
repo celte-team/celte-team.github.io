@@ -116,7 +116,8 @@ The master monitors and automatically manages server node scaling:
 2. Helm 3.x installed
 3. `kubectl` configured for the cluster
 4. [minikube](https://minikube.sigs.k8s.io/docs/start/?arch=%2Fmacos%2Farm64%2Fstable%2Fbinary+download) or [kind](https://kind.sigs.k8s.io/docs/user/quick-start/) for local development
-3. Create `celte` namespace:
+5. [k9s](https://k9scli.io/) for monitoring is your best friend (k9s -n celte)
+6. Create `celte` namespace:
 
 ```bash
 kubectl create namespace celte

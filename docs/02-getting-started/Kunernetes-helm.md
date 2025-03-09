@@ -130,8 +130,8 @@ kubectl create namespace celte
 minikube start
 
 # Load images into minikube
-minikube load docker-image clmt/celte-master:latest
-minikube load docker-image clmt/celte-sn:latest
+minikube image load docker-image clmt/celte-master:latest
+minikube image load docker-image clmt/celte-sn:latest
 
 # Initial installation
 helm install celte-stack ./helm

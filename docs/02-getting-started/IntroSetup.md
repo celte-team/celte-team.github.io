@@ -5,7 +5,6 @@ sidebar_position: 1
 
 This document provides a step-by-step guide to setting up the development environment for the project. The project is developed in four main parts:
 
-
 ## Setup export in bashrc
 
 The project need some environment variable, here is what you need to add at the end of your bashrc (~/.bashrc) :
@@ -19,6 +18,7 @@ Your type of OS (the exmple is for linux):
 arm64-osx : macos
 aarch64-linux : linux arm
 x64-linux : linux
+
 ```
 export VCPKG_TARGET_TRIPLET=x64-linux
 
@@ -124,6 +124,7 @@ The godot project contain the client and the server node.
 ```
 
 5. Then link the addons to your project:
+
 ```bash
 ln -s /YOUR_PATH/celte/celte-godot/addons/celte/ addons/celte
 ```

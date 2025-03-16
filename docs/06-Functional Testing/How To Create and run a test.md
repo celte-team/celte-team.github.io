@@ -2,14 +2,13 @@
 
 ## 1. Create a godot project
 
-The first step is to create a godot project. This project must be minimaliste and only test one feature (input sending and recive, spawn entity...).
-This Scene will print console log that will be catch by the testing script.
+The first step is to create a Godot project. This project must be minimalist and only test one feature (input sending and receiving, spawning an entity...).
+This scene will print a console log that will be captured by the testing script.
 
 ## 2. Update the yaml file
 
-The yaml file is composed of a list of test, here is an exemple of test:
-
-```
+The YAML file is composed of a list of tests; here is an example of a test:
+```yaml
 tests:
     - name: "Test 1"
         path: "./template/"
@@ -47,27 +46,27 @@ tests:
 
 You will find in the yaml:
 
-* Name     : name of the test
-* Path       : path to the godot project previouselly created
-* Timeout : if all the match are not find by the time limit it will considerate the test failed
-* Server/Client  :
-* * Number : number of server to up
-* * Wait-String : when this string is matched we will create a new server or client
-* * Delay : is the delay between 2 creation of server
-* Expects :
-* * Servers : Contain a list of server, each of them have a list of string to match
-* * Clients : Contain a list of server, each of them have a list of string to match
+* Name     : Name of the test.
+* Path     : Path to the previously created Godot project.
+* Timeout  : If not all matches are found within the time limit, the test will be considered failed.
+* Server/Client:
+* * Number      : Number of servers or clients to start.
+* * Wait-String : When this string is matched, a new server or client will be created.
+* * Delay       : The delay between two server or client creations.
+* Expects:
+* * Servers : A list where each server is associated with a list of strings to be matched.
+* * Clients : A list where each client is associated with a list of strings to be matched.
 
 ## 3. Run the new created test
-!! Be sure to have redis, pulsar and master running !!
+Ensure that Redis, Pulsar, and the master are running.
 You can use ```./automation/run --redis/pulsar/master``` in celte-system
 
-Now that you have updated the yaml file and created the godot project you can launch the test using "./autotest" his first argument must be the yaml file
+Now that you have updated the YAML file and created the Godot project, you can launch the test using "./autotest". Its first argument must be the YAML file.
 
-```
+```bash
 ./autotest config.yaml
 ```
 
-The STDOUT and STDERR of all the process (client/servers) can be find in "test_logs"
+The STDOUT and STDERR of all processes (clients/servers) can be found in the "test_logs" directory.
 
 ![1742100678003](image/HowToCreateandrunatest/1742100678003.png)

@@ -69,7 +69,7 @@ You will find in the yaml:
 * Expects:
 * * Servers : A list where each server is associated with a list of strings to be matched.
 * * Clients : A list where each client is associated with a list of strings to be matched.
-* Expects:
+* Not-Expects:
 * * Servers : A list where each server is associated with a list of strings that shouldn't be matched.
 * * Clients : A list where each client is associated with a list of strings that shouldn't be matched.
 

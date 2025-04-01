@@ -8,6 +8,7 @@ This scene will print a console log that will be captured by the testing script.
 ## 2. Update the yaml file
 
 The YAML file is composed of a list of tests; here is an example of a test:
+
 ```yaml
 tests:
     - name: "Test 1"
@@ -26,22 +27,34 @@ tests:
         expects:
             servers:
                 1:
-                - "JUMP"
+                    - "JUMP"
                 2:
-                - "JUMP"
+                    - "JUMP"
 
             clients:
                 1:
-                - "press: move forward"
-                - "release: move forward"
-                - "press: move left"
-                - "release: move left"
-                - "press: move right"
-                - "release: move right"
-                - "press: move back"
-                - "release: move back"
-                - "press: jump"
-                - "JUMP"
+                    - "press: move forward"
+                    - "release: move forward"
+                    - "press: move left"
+                    - "release: move left"
+                    - "press: move right"
+                    - "release: move right"
+                    - "press: move back"
+                    - "release: move back"
+                    - "press: jump"
+                    - "JUMP"
+      
+        not-expects:
+            servers:
+                1:
+                    - "press: move forward"
+                    - "release: move forward"
+                    - "press: move left"
+                2:
+                    - "press: move forward"
+                    - "release: move forward"
+                    - "press: move left"
+
 ```
 
 You will find in the yaml:
@@ -56,16 +69,23 @@ You will find in the yaml:
 * Expects:
 * * Servers : A list where each server is associated with a list of strings to be matched.
 * * Clients : A list where each client is associated with a list of strings to be matched.
+* Expects:
+* * Servers : A list where each server is associated with a list of strings that shouldn't be matched.
+* * Clients : A list where each client is associated with a list of strings that shouldn't be matched.
 
 ## 3. Run the new created test
+
 Ensure that Redis, Pulsar, and the master are running.
-You can use ```./automation/run --redis/pulsar/master``` in celte-system
+You can use ``./automation/run --redis/pulsar/master`` in celte-system
 
 Now that you have updated the YAML file and created the Godot project, you can launch the test using "./autotest". Its first argument must be the YAML file.
 
 ```bash
 ./autotest config.yaml
 ```
+
+![1743501675478](image/HowToCreateandrunatest/1743501675478.png)
+
 
 The STDOUT and STDERR of all processes (clients/servers) can be found in the "test_logs" directory.
 

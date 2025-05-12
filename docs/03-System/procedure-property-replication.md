@@ -10,65 +10,42 @@ Any discrepency between the simulated values and the real one on the server node
 
 ## GODOT API
 
-```c
-func initReplicatedProps(entity: CEntity):
-	entity.RegisterReplicated("pos",
-		func(): return JSON.stringify([position.x, position.y, position.z]), 	# get
-		func(p): call_deferred("update_position", p))							# set
-```
-Some important considerations:
-- since the setter is called whenever there is an update received from the network, this call **is not thread safe** and the user should take all the necessary precautions (using call_deferred for example).
-- the format of the value does not matter as long as it is returned as a string (which may be binary data or not).
-- Celte does not yet provide a way to automatically interpolate values to smooth the transition when the client rollbacks. This might come in the future.
+The Celte API for godot has in editor bindings for configuring property replication. This section details how to use it.
 
-## Complete example for position replication, very simple interpolation
+The first step is to select a `CEntity` object in your project's hierarchy.
 
-```c
-extends CharacterBody3D
+![missing file](repl-hierachy.png)
 
-var _rollback_interp_modifier = Vector3(0, 0, 0)
-var _rollback_received_timestamp = Time.get_ticks_msec()
-var rollabackDt = 200  # ms, time it takes to correct errors from rollback
-var _rollback_target_pos = position
+Upon selecting it, a new `replication` menu will appear at the bottom of your editor.
 
+![missing file](repl-bottom-panel.png)
 
-# call this in celte initialization of the entity, after OnSpawn has been called
-func initReplicatedProps(entity):
-	entity.RegisterReplicated("pos",
-		func(): return JSON.stringify([position.x, position.y, position.z]), 	# get
-		func(p): call_deferred("update_position", p))							# set
+Clicking it opens the following UI:
 
+![missing file](repl-ui.png)
 
-func update_position(p: String):
-	var arr = JSON.parse_string(p)
-	var pos: Vector3 = Vector3(arr[0], arr[1], arr[2])
+To add a new replicated property, click `Add Property`.
+In the tree view that opens, you will see the subtree relevant to the CEntity you picked.
 
-	_rollback_interp_modifier = (pos - position) / rollabackDt
-	_rollback_received_timestamp = Time.get_ticks_msec()
-	_rollback_target_pos = pos
+![missing file](repl-tree.png)
 
+Double click on the node that has the property that you wish to replicate on the network.
 
-func correct_position_from_rollback_data(delta):
-	# if we are too far away we snap directly to the rollback position
-	if position.distance_to(_rollback_target_pos) > 5.0:
-		position = _rollback_target_pos
-		print("SNAPPING position to ", _rollback_target_pos)
-		return
+You will see a list of the properties available to be replicated. Only a selection of types are available for replication, but more will be added progressively.
 
-	var curr_time = Time.get_ticks_msec()
-	if (curr_time - _rollback_received_timestamp) > rollabackDt:
-		return # we are done with the rollback
+Click the property you wish to replicate. You can use the search bar at the bottom to filter the properties.
 
-	position += _rollback_interp_modifier * delta * 1000 # delta is in seconds
+![missing file](repl-properties.png)
 
-func _physics_process(delta):
-	var entity = get_node("CEntity")
-	if (entity == null):
-		push_error("CEntity is null in physics process")
-	if not entity.IsOwnedByCurrentPeer():
-		correct_position_from_rollback_data(delta) # correct the position from the last rollback received
+A final screen will display after selecting the property, with the following options:
 
-    # process input data
+- Is Angle : if checked, the property will be considered an angle and be interpolated using the shortest path to the target value.
+- Interpolate : Checking this option makes a spinbox appear. Properties annotated as interplated won't snap directly to the value sent by the server but will smoothly transition, taking the specified duration to correct the error.
 
-    move_and_slide()
-```
+![missing file](repl-options.png)
+
+After clicking ok, the list of replicated properties displays in the replication panel.
+
+![missing file](repl-final.png)
+
+Click the remove button to remove the property from the list of saved properties. Do not forget to hit save on your project to save the settings.

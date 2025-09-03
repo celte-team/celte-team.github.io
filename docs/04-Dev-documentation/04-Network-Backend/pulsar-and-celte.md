@@ -1,10 +1,56 @@
+# Apache Pulsar
+
+Apache Pulsar is the messaging system at the heart of Celte. It is a publish/subscribe system where messages are produced on topics and consumers subscribe to receive messages.
+
+## Topics
+
+Data published on Pulsar topics is mainly Remote Procedure Calls (RPCs), but other streams exist such as Inputs or replication data.
+
+- Each peer gets a `{peer uuid}.rpc` topic for peer-targeted RPCs.
+- Grapes have a `{grape uuid}.rpc` topic and a `{grape uuid}` topic (the latter is read only by the SN that owns the grape).
+- Entity containers have `{entity container uuid}.rpc`, `{entity container uuid}.repl` (replication), and `{entity container uuid}.input` (client inputs).
+- Master topics include `master.hello.sn`, `master.hello.client`, and `master.rpc`.
+
+For more details about RPC structure see `../03-System/RPCS.md`.
+
+## Encapsulation in Celte
+
+Celte wraps Pulsar producers and consumers to provide:
+
+- Serialization helpers (CelteRequest structs that convert to/from JSON).
+- Convenient reader/writer classes that manage connection lifecycle and thread context.
+- A writer pool that creates/destroys producers dynamically for frequently-changing topics.
+
+### ReaderStream
+
+`ReaderStream` subscribes to topics and dispatches messages to handlers. Options include synchronous (main-thread) and asynchronous handlers and ready/connect callbacks.
+
+### WriterStream
+
+`WriterStream` sends messages asynchronously and can notify when a message is delivered.
+
+### WriterStreamPool
+
+`WriterStreamPool` manages multiple writer streams for many topics, evicting unused producers after an idle timeout to save resources.
+
+Example (WriterStreamPool):
+
+```c++
+_writerStreamPool.emplace(
+    net::WriterStreamPool::Options{.idleTimeout = std::chrono::milliseconds(1000)},
+    RUNTIME.IO());
+
+std::string topic = "test_topic";
+req::BinaryDataPacket packet{.binaryData = msg, .peerUuid = RUNTIME.GetUUID()};
+_writerStreamPool->Write(topic, packet, []() { std::cout << "message delivered!" << std::endl; });
+```
 # Apache pulsar
 
 Apache pulsar is the messaging system at the heart of celte. It is a `pub / sub` system, where messages are *produced* on *topics* and *consumers* can *subscribe* to those topics in order to receive the data published to it.
 
 ## Topics
 
-Data published on pulsar topic is mainly [Remote procedure calls](./RPCS.md) but some other data streams exist such as [Inputs](./procedure-inputs.md) or [replication data](./procedure-property-replication.md).
+Data published on pulsar topic is mainly [Remote procedure calls](../03-System/RPCS.md) but some other data streams exist such as [Inputs](../03-System/Inputs/Inputs.md) or [replication data](../03-System/procedure-property-replication.md).
 
 Celte data is divided on various topics to segment the data and group relevant information together.
 

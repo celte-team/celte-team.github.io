@@ -54,8 +54,6 @@ The goal of this extension is to:
 1. If we are currently a client, check the pressed inputs and send them using the network SDK in the container channel
 2. Replace all the input logic (basically all the native Godot
    functions like is_pressed, is_released...)
-3. Save inputs inside a file for debugging
-4. Simulate inputs from a log file
 
 here you can see an exemple, the first step is to check if we currently are the client and if it's the case we use godot system to treat the input.
 In the other case et do the same operation than godot but using our own input database, this database is feed by the celte network
@@ -146,43 +144,3 @@ func _physics_process(delta):
 		call_deferred("update_animation")
 
 ```
-
-### How to use the player input log
-
-We have a system that saves all player-executed inputs into logs using the node ID.
-
-To do this, you can use a dedicated Godot project that takes the path to an input file as an argument.
-You can find it under: celte-godot/projects/test_scenes/input_sim/
-
-```
-godot . --input_file <path to the input log file>
-```
-
-If you want to add this system to your own Godot project, you just need to:
-
-1. Set the CInputSystem argument "Is Used at Start" to false
-2. In the _ready function of your Godot player script, call SimulateSavedLog(path_to_the_file) on the CInput node
-
-```python
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-	if not OS.has_feature('headless'):
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	#bot_inputs()
-	if not Celte.server_mode:
-		var have_val = true
-		var args = OS.get_cmdline_args()
-		for i in range(args.size()):
-			if args[i] == "--input_file" and i + 1 < args.size():
-				var value = args[i + 1]
-				$CInputSystem.SimulateSavedLog(value)
-				have_val = false
-		if have_val:
-			print("To Execute a command with a specific input use the --input_file <path>")
-```
-**!! Be careful to call the SimulateSavedLog function only in client mode !!**
-
-As shown in the example, you can also extract the path from the launch arguments.
-You can modify this logic to better fit your project.

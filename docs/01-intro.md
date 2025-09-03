@@ -66,4 +66,4 @@ If a container starts to have too much data going through it, it should be able 
 
 # Schemas
 
-![Replication Graph](../static/img/replication-graph.drawio.svg)
+![Replication Graph](./04-Dev-documentation/03-System/replication-graph.drawio.svg)

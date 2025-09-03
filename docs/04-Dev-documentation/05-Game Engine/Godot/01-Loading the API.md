@@ -1,3 +1,31 @@
+---
+title: Loading the API
+---
+
+# Loading the API
+
+Celte is designed to split engine-specific code (bindings) from core runtime code. For engines like Godot, Celte provides a dynamic binding that loads the native Celte Systems library at runtime.
+
+## Server vs Client mode
+
+To run the API in server mode export the environment variable `CELTE_MODE=server`. When not set or set differently the API will run in client mode.
+
+macOS / Linux (bash / zsh):
+
+```bash
+export CELTE_MODE=server
+```
+
+Windows (PowerShell):
+
+```powershell
+setx CELTE_MODE "server"
+```
+
+## Loading the bindings in Godot
+
+The Godot project uses an autoload singleton (`CelteSingleton.gd`) which loads the native bindings. It's recommended to add that singleton to the project autoloads to ensure the runtime is available early.
+
 # Loading the API
 
 Celte is designed to run with a backed that is engine agnostic. Some engines, such as Godot, do not have a good solution for handling conditional compilation. In godot, even if it is possible to create two binaries when exporting the game, this process is cumbersome and cannot really be used during developement because it is impossible to specify target features in the editor (thus making it impossible to test a server and a client in editor mode).
@@ -62,19 +90,3 @@ Celte manages the top level logic of the networking, but most actions require to
 
 ```
 **Note:** All the available hooks are not used in this example for the sake of conciseness. Please refer to the in engine documentation of the API to see all of the available hooks.
-
-## Connect
-
-You can connect to the cluster using the same method for your servers and your clients:
-
-```python
-	Celte.api.ConnectToClusterWithAddress("localhost", 6650)
-```
-
-Or, if you have the cluster ip set in the environment (useful for servers):
-
-```python
-	Celte.api.ConnectToCluster()
-```
-
-If the connection timesout or fail, the `onConnectionFailed` hook will be called.

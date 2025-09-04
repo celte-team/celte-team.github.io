@@ -395,6 +395,7 @@ EXPORT void CallClientRPC(const std::string& clientId, const std::string& name,
 
 ### Bindings in Godot
 
+#### In Celte API
 All of the function are defined inside the CAPI.cpp but only the Global is bind inside it. The others are bind inside there own file (CClient.cpp, CEntity.cpp and CSN.cpp)
 
 Here is an exemple of the implementation inside the CAPI.cpp
@@ -438,7 +439,7 @@ void CAPI::CallGlobalRPC(const String& name, Dictionary args)
     celteBindingsSingleton.CallGlobalRPC(std::string(name.utf8().get_data()), s);
 }
 ```
-
+#### In Godot project
 In this exemple you can see both how tu use the global and the grapes RPCs
 1. Create a function
 2. Register the function

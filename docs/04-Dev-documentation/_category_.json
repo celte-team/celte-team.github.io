@@ -1,0 +1,8 @@
+{
+  "label": "Developer documentation",
+  "link": {
+    "type": "generated-index",
+    "title": "Developer documentation",
+    "description": "In-depth developer guides covering engine internals, networking backend, replication, and testing workflows."
+  }
+}

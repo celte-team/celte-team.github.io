@@ -1,0 +1,8 @@
+{
+  "label": "Building your game",
+  "link": {
+    "type": "generated-index",
+    "title": "Building your game",
+    "description": "Practical guides for integrating CELTE with Godot: setup, runtime flows, spawning, replication, and editor tooling. Start here to build your game using the Celte runtime."
+  }
+}

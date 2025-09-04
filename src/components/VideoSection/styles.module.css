@@ -1,0 +1,86 @@
+.videoSection {
+  padding: 4rem 0;
+  background-color: var(--ifm-color-emphasis-100);
+}
+
+.videoWrapper {
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.videoTitle {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--ifm-color-primary);
+}
+
+.videoDescription {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.videoContainer {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 3rem;
+}
+
+.video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.techHighlights {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.techItem {
+  padding: 1.5rem;
+  background: var(--ifm-background-color);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+}
+
+.techItem:hover {
+  transform: translateY(-5px);
+}
+
+.techItem h3 {
+  color: var(--ifm-color-primary);
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.techItem p {
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+@media screen and (max-width: 996px) {
+  .techHighlights {
+    grid-template-columns: 1fr;
+  }
+
+  .videoTitle {
+    font-size: 2rem;
+  }
+
+  .videoDescription {
+    font-size: 1rem;
+  }
+}

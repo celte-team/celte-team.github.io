@@ -8,9 +8,9 @@ This section collects practical pages and how-tos for integrating CELTE into you
 
 Start here if you're integrating CELTE into a game project.
 
-Key pages
+- Key pages
 
-- [Getting started & setup](./01-build-your-game.md)
+- [Getting started & setup](./01-Intro.md)
 - [YAML configuration](./02-YAML-config.md)
 - [Master API overview](./03-Master-API.md)
 - [Lobby server](./04-Lobby-server.md)

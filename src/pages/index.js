@@ -25,7 +25,7 @@ function HomepageHeader() {
           <Link
             className="button button--secondary button--lg"
             to="/docs/intro">
-            Discover Celte
+            Documentation
           </Link>
           <Link
             className="button button--outline button--secondary button--lg"
@@ -48,7 +48,7 @@ export default function Home() {
       description="Celte - An innovative server meshing solution for video games, enabling dynamic and efficient server resource scaling">
       <HomepageHeader />
       <main>
-        <VideoSection />
+        {/* <VideoSection /> */}
         <HomepageFeatures />
       </main>
     </Layout>

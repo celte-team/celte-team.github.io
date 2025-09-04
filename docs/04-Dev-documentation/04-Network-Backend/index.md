@@ -8,7 +8,7 @@ This section covers networking internals: Apache Pulsar integration, RPC/CRPC st
 
 Key pages
 
-- [Pulsar and Celte](./pulsar-and-celte.md)
-- [Redis and Celte](./redis-and-celte.md)
+- [Pulsar and Celte](../../06-Devops/pulsar-and-celte.md)
+- [Redis and Celte](../../06-Devops/redis-and-celte.md)
 
 See also system-level pages for RPC/replication details.

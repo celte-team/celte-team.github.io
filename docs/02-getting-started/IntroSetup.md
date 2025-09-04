@@ -2,7 +2,7 @@
 
 This document explains how to set up a local development environment for Celte. It contains the required tools, repository cloning steps, build and run instructions, and development norms the team follows. This page is intended for developers working on the project and provides extra detail compared to the internal notes.
 
-Note that the configuration for production is slightly different than the configuration for developping.
+Note that the configuration for production is slightly different than the configuration for developing.
 
 # Running in production and using the addon
 
@@ -11,6 +11,7 @@ If you wish to only use CELTE in your game and deploy it you will need our **God
 Download it from the [latest release](https://github.com/celte-team/celte-godot/releases) and place it under the addons folder of your godot project.
 
 The components you need to think about are the following:
+
 - Your game
 - Having a master server up and running
 - Deploying Apache pulsar and Redis for the networking backend
@@ -26,21 +27,32 @@ Each of these components has a section in this documentation. Please refer to it
 - Docker (and docker-compose if you use it locally)
 - VCPKG
 - Ninja (or another supported generator for CMake)
-- Python (required by SCons)
+- Python (SCons, colorama)
 - scons (build tool used by Godot native extensions)
-- a language that supports HTTP requests for building the lobby server (we use Go)
+- Go (for the lobby server)
 - dotnet SDK (for running Master)
 
 Install the platform-specific packages using your distribution package manager or Homebrew on macOS.
 
-## Git clone
-
-Clone the two repositories you'll work with:
+Recommended packages and vcpkg libraries (Fedora/RHEL example):
 
 ```bash
-git clone git@github.com:celte-team/celte-system.git && cd celte-system && git clone git@github.com:celte-team/celte-godot.git
+sudo dnf install perl perl-core perl-FindBin
+vcpkg install boost nlohmann-json
+sudo dnf install autoconf automake autoconf-archive
 ```
 
+## Git clone
+
+Clone the two repositories you'll work with (side-by-side is recommended):
+
+```bash
+git clone git@github.com:celte-team/celte-godot.git
+```
+
+```bash
+git clone git@github.com:celte-team/celte-system.git
+```
 
 ## Setup Celte System (celte-system)
 
@@ -82,7 +94,7 @@ The automation script prepares the celte-godot workspace and copies/builds requi
 
 ```bash
 cd celte-system/
-./automations/setup_repository.sh ./celte-godot/
+./automations/setup_repository.sh ../celte-godot
 cd -
 ```
 
@@ -101,6 +113,7 @@ Add the path to your Godot executable to your shell rc (example for Linux/macOS)
 ```bash
 export GODOT_PATH="$HOME/Downloads/Godot_v4.4-stable_linux.x86_64"
 export CELTE_GODOT_PATH="$HOME/Downloads/Godot_v4.4-stable_linux.x86_64"
+export CELTE_GODOT_PROJECT_PATH="$HOME/celte-godot/projects/demo-tek/"
 source ~/.bashrc
 ```
 
@@ -147,6 +160,12 @@ rm -rf addons/celte
 ln -s ../../addons/celte/ addons/celte
 ```
 
+If the symlink appears broken (red in `ls -la`), create it using absolute paths instead of relative paths. Example:
+
+```bash
+ln -s /absolute/path/to/celte-godot/addons/celte/ /absolute/path/to/celte-godot/projects/demo-tek/addons
+```
+
 6. Build the lobby server (Go)
 
 From the lobby server directory:
@@ -165,24 +184,43 @@ Create a `~/.celte.yaml` file containing your local development configuration. R
 Example `~/.celte.yaml` (edit the values):
 
 ```yaml
-# Dev config
+# Dev config below
 celte:
-    - CELTE_MASTER_HOST: 192.168.1.41
-    - CELTE_MASTER_PORT: 1908
-    - CELTE_REDIS_PORT: 6379
-    - CELTE_REDIS_KEY: logs
-    - CELTE_REDIS_HOST: 192.168.1.41
-    - CELTE_GODOT_PATH: /Applications/Godot.app/Contents/MacOS/Godot
-    - CELTE_GODOT_PROJECT_PATH: /path/to/celte-godot/projects/demo-tek
-    - CELTE_PULSAR_HOST: 192.168.1.41
-    - CELTE_PULSAR_PORT: 6650
-    - CELTE_PULSAR_ADMIN_PORT: 8080
-    - PUSHGATEWAY_HOST: 192.168.1.41
-    - PUSHGATEWAY_PORT: 9091
-    - METRICS_UPLOAD_INTERVAL: 5
-    - REPLICATION_INTERVAL: 1000
-    - CELTE_SERVER_GRAPHICAL_MODE: 'false'
-    - CELTE_LOBBY_HOST: 192.168.1.41
+- CELTE_MASTER_HOST: 192.168.1.41
+- CELTE_MASTER_PORT: 1908
+- CELTE_REDIS_PORT: 6379
+- CELTE_REDIS_KEY: logs
+- CELTE_REDIS_HOST: 192.168.1.41
+- CELTE_GODOT_PATH: /Applications/Godot.app/Contents/MacOS/Godot
+- CELTE_GODOT_PROJECT_PATH: /path/to/celte-godot/projects/demo-tek
+- CELTE_PULSAR_HOST: 192.168.1.41
+- CELTE_PULSAR_PORT: 6650
+- CELTE_PULSAR_ADMIN_PORT: 8080
+- PUSHGATEWAY_HOST: 192.168.1.41
+- PUSHGATEWAY_PORT: 9091
+- METRICS_UPLOAD_INTERVAL: 5
+- REPLICATION_INTERVAL: 1000
+- CELTE_SERVER_GRAPHICAL_MODE: 'false'
+- CELTE_LOBBY_HOST: 192.168.1.41
+
+# Prod config below
+# celte:
+# - CELTE_MASTER_HOST: 192.168.1.41
+# - CELTE_MASTER_PORT: 1908
+# - CELTE_REDIS_PORT: 6379
+# - CELTE_REDIS_KEY: logs
+# - CELTE_REDIS_HOST: 57.128.60.39
+# - CELTE_GODOT_PATH: /Applications/Godot.app/Contents/MacOS/Godot
+# - CELTE_GODOT_PROJECT_PATH: /path/to/celte-godot/projects/demo-tek
+# - CELTE_PULSAR_HOST: 57.128.60.39
+# - CELTE_PULSAR_PORT: 32222
+# - CELTE_PULSAR_ADMIN_PORT: 30080
+# - PUSHGATEWAY_HOST: 57.128.60.39
+# - PUSHGATEWAY_PORT: 9091
+# - METRICS_UPLOAD_INTERVAL: 5
+# - REPLICATION_INTERVAL: 1000
+# - CELTE_SERVER_GRAPHICAL_MODE: 'false'
+# - CELTE_LOBBY_HOST: 192.168.1.41
 ```
 
 8. Final compile step for godot native extension
@@ -227,6 +265,13 @@ cd master
 dotnet run
 ```
 
+If the .NET SDK is not installed (Fedora example):
+
+```bash
+sudo rpm -Uvh https://packages.microsoft.com/config/fedora/$(rpm -E %fedora)/packages-microsoft-prod.rpm
+sudo dnf install dotnet-sdk-8.0
+```
+
 4. Start the lobby server (from `celte-godot`)
 
 ```bash
@@ -252,6 +297,14 @@ godot .
 ```
 
 If everything is configured correctly the client will connect to the local servers and you should see the demo scene.
+
+### (Optional) Install Debug Draw 3D
+
+If you want on-screen debug rendering, you can install the Debug Draw 3D Godot addon. Download from the Godot Asset Library and copy the `addons/debug_draw_3d` folder into your project's `addons` directory.
+
+```bash
+cp -rf debug_draw_3d-1.5.1/addons/debug_draw_3d/ celte-godot/projects/demo-tek/addons
+```
 
 ## Docker image
 

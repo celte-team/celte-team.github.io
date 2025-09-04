@@ -6,25 +6,155 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-color-primary: #000000; /* Black */
+  --ifm-color-primary-dark: #000000;
+  --ifm-color-primary-darker: #000000;
+  --ifm-color-primary-darkest: #000000;
+  --ifm-color-primary-light: #1a1a1a;
+  --ifm-color-primary-lighter: #333333;
+  --ifm-color-primary-lightest: #4d4d4d;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
+  --ifm-color-primary: #ffffff;
+  --ifm-color-primary-dark: #e6e6e6;
+  --ifm-color-primary-darker: #cccccc;
+  --ifm-color-primary-darkest: #b3b3b3;
+  --ifm-color-primary-light: #ffffff;
+  --ifm-color-primary-lighter: #ffffff;
+  --ifm-color-primary-lightest: #ffffff;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+/* Custom styles for the hero section */
+.hero {
+  background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    linear-gradient(45deg, rgba(255,255,255,0.05) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(255,255,255,0.05) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(255,255,255,0.05) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(255,255,255,0.05) 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+  opacity: 0.5;
+  z-index: 0;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+.hero__title {
+  color: white;
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero__subtitle {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+
+.heroDescription {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+}
+
+/* Custom styles for buttons */
+.button--secondary {
+  background-color: white;
+  color: #000000;
+  border: 2px solid white;
+  font-weight: 600;
+  padding: 0.8rem 2rem;
+  transition: all 0.3s ease;
+}
+
+.button--secondary:hover {
+  background-color: transparent;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.button--outline {
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+  font-weight: 600;
+  padding: 0.8rem 2rem;
+  transition: all 0.3s ease;
+}
+
+.button--outline:hover {
+  background-color: white;
+  color: #000000;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Custom styles for the video section */
+.videoSection {
+  background-color: #f8fafc;
+}
+
+[data-theme='dark'] .videoSection {
+  background-color: #1a1a1a;
+}
+
+.techItem {
+  background-color: white;
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+}
+
+[data-theme='dark'] .techItem {
+  background-color: #1a1a1a;
+  border-color: #333333;
+}
+
+.techItem:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Custom styles for the navbar */
+.navbar {
+  background-color: white;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+[data-theme='dark'] .navbar {
+  background-color: #1a1a1a;
+}
+
+/* Custom styles for the footer */
+.footer {
+  background-color: #1a1a1a;
+}
+
+[data-theme='dark'] .footer {
+  background-color: #000000;
 }

@@ -66,4 +66,12 @@ If a container starts to have too much data going through it, it should be able 
 
 # Schemas
 
-![Replication Graph](./04-Dev-documentation/03-System/replication-graph.drawio.svg)
+![Replication Graph](images/replication-graph.drawio.svg)
+Schema of the Celte system architecture including:
+- Clients (client playing)
+- Server nodes (game server)
+- Master (server managing the server nodes)
+- Lobby (server managing the clients connection)
+- Pulsar (Scalable messaging system)
+- Redis (Database used for storing persistent data)
+- Yggdrasil (Dynamic Server Mesh system)

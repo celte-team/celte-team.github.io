@@ -100,10 +100,27 @@ install_deps() {
 
 	echo "Installing golang..."
 	if ! command -v go &> /dev/null; then
-		wget https://go.dev/dl/go1.21.3.linux-amd64.tar.gz -O /tmp/go.tar.gz
-		sudo tar -C /usr/local -xzf /tmp/go.tar.gz
-		rm -f /tmp/go.tar.gz
-		export PATH="/usr/local/go/bin:$PATH"
+		ARCH=$(uname -m)
+		OS=$(uname)
+		if [ "$OS" = "Darwin" ]; then
+			if ! command -v brew &> /dev/null; then
+				echo "Homebrew is required to install Go on macOS. Please install Homebrew first: https://brew.sh/"; exit 1
+			fi
+			brew install go
+		else
+			GO_VERSION="1.21.3"
+			if [ "$ARCH" = "x86_64" ]; then
+				GO_URL="https://go.dev/dl/go${GO_VERSION}.linux-amd64.tar.gz"
+			elif [ "$ARCH" = "arm64" ] || [ "$ARCH" = "aarch64" ]; then
+				GO_URL="https://go.dev/dl/go${GO_VERSION}.linux-arm64.tar.gz"
+			else
+				echo "Unsupported architecture for Go: $ARCH"; exit 1
+			fi
+			wget "$GO_URL" -O /tmp/go.tar.gz
+			sudo tar -C /usr/local -xzf /tmp/go.tar.gz
+			rm -f /tmp/go.tar.gz
+			export PATH="/usr/local/go/bin:$PATH"
+		fi
 	else
 		echo "Golang is already installed."
 	fi
@@ -143,4 +160,3 @@ install_godot && \
  install_deps && \
  compile_master && \
 	compile_lobby
-

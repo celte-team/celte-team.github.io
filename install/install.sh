@@ -51,7 +51,18 @@ configure_celte_yaml() {
 		return
 	fi
 
-	# Example usage
+	# Detect OS and set appropriate Godot path
+	local godot_path
+	OS=$(uname)
+	if [ "$OS" = "Darwin" ]; then
+		# macOS
+		godot_path="${SCRIPT_DIR}/binaries/godot/Godot.app/Contents/MacOS/Godot"
+	else
+		# Linux
+		godot_path="${SCRIPT_DIR}/binaries/godot/godot"
+	fi
+
+	# Detect local IP address
 	local ip_addr
 	ip_addr=$(ipconfig getifaddr en0 2>/dev/null)
 	if [ -z "$ip_addr" ]; then
@@ -69,7 +80,7 @@ celte:
   - CELTE_REDIS_PORT: 6379
   - CELTE_REDIS_KEY: logs
   - CELTE_REDIS_HOST: $ip_addr
-  - CELTE_GODOT_PATH: ${SCRIPT_DIR}/binaries/godot/godot
+  - CELTE_GODOT_PATH: $godot_path
   - CELTE_GODOT_PROJECT_PATH: $SCRIPT_DIR/binaries/backend/demo-tek
   - CELTE_PULSAR_HOST: $ip_addr
   - CELTE_PULSAR_PORT: 6650
@@ -84,6 +95,7 @@ celte:
   - CELTE_YGG_PORT: 4564
 EOF
 	echo "Generated $config_file with detected IP: $ip_addr"
+	echo "Godot path set to: $godot_path"
 }
 
 install_deps() {
